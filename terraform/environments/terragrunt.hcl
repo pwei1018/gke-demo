@@ -9,8 +9,8 @@ remote_state {
 }
 
 inputs = {
-  project_id                               = "CHANGEME"
-  github_demo_owner                        = "ilya-lesikov"
+  project_id                               = "gke-demo-pwei"
+  github_demo_owner                        = "pwei1018"
   github_demo_reponame                     = "gke-demo"
   argocd_ver                               = "1.3.6"
   argo_rollouts_ver                        = "0.6.2"

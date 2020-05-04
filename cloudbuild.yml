@@ -99,7 +99,7 @@ steps:
         git remote set-url origin git@github.com:${_GITHUB_DEMO_OWNER}/${_GITHUB_DEMO_REPONAME}
 
   - id: "[staging] Update images tags to new versions in Kubernetes manifests"
-    name: ilyalesikov/kustomize
+    name: pwei1018/kustomize
     dir: ./kubernetes/overlays/staging
     entrypoint: bash
     args:
@@ -123,7 +123,7 @@ steps:
         git push
 
   - id: "[staging] Deploy, test applications"
-    name: ilyalesikov/gke-demo
+    name: pwei1018/gke-demo
     dir: ./terraform/environments/staging/kubernetes
     entrypoint: bash
     args:
@@ -159,7 +159,7 @@ steps:
         done
 
   - id: "[staging] Destroy applications"
-    name: ilyalesikov/gke-demo
+    name: pwei1018/gke-demo
     dir: ./terraform/environments/staging/kubernetes
     entrypoint: bash
     args:
@@ -169,7 +169,7 @@ steps:
         terragrunt destroy -target=k8s_manifest.hipstershop-argo-app -auto-approve
 
   - id: "[prod] Update images tags to new versions in Kubernetes manifests"
-    name: ilyalesikov/kustomize
+    name: pwei1018/kustomize
     dir: ./kubernetes/overlays/prod
     entrypoint: bash
     args:
@@ -194,7 +194,7 @@ steps:
         git push
 
   - id: "[prod] Canary deploy applications"
-    name: ilyalesikov/gke-demo
+    name: pwei1018/gke-demo
     dir: ./terraform/environments/staging/kubernetes
     entrypoint: bash
     args:
